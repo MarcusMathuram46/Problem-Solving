@@ -14,7 +14,7 @@ inp.on("line", (data) => {
 inp.on("close", () => {
   
 
-  console.log(userInput[0]);
+  console.log(userInput[0].split().join());
 
   //end-here
 });
