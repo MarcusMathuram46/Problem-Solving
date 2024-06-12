@@ -12,14 +12,12 @@ inp.on("line", (data) => {
 });
 
 inp.on("close", () => {
-  const N=parseInt(userInput[0]);
-  if (N===0) {
-    console.log("Null");
-    return;
+  let N=parseInt(userInput[0]);
+  if (N<0){
+    console.log("Error");
+  }else if (N===0){
+    console.log(0);
+  }else{
+    console.log(N*N);
   }
-  let output = "";
-  for(let i=1; i<=N; i++) {
-    output += (9*i)+" ";
-  }
-  console.log(output.trim());
 });

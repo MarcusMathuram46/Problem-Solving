@@ -1,17 +1,17 @@
 // Getting input via STDIN
-const readline = require("readline");
+// const readline = require("readline");
 
-const inp = readline.createInterface({
-  input: process.stdin,
-});
+// const inp = readline.createInterface({
+//   input: process.stdin,
+// });
 
-const userInput = [];
+// const userInput = [];
 
-inp.on("line", (data) => {
-  userInput.push(data);
-});
+// inp.on("line", (data) => {
+//   userInput.push(data);
+// });
 
-inp.on("line", (data) => {
+// inp.on("line", (data) => {
   //start-here
   //Your code goes here … replace the below line with your code logic
   // console.log(userInput[0].split('').join(','));
@@ -68,14 +68,23 @@ inp.on("line", (data) => {
   // const smallerNumber = Math.min(...numbers);
   // console.log(smallerNumber);
   // inp.close();
-  
 
-
-
-
-
-
-
-
+ 
   //end-here
-});
+// });
+
+let arr = [1, [2, [3, 4], 5], 6, [7, 8]];
+
+const flat = (arr) => {
+  let resultArray=[];
+  for (let value of arr) {
+    if(Array.isArray(value)){
+      resultArray=[...resultArray,...flat(value)];
+      // resultArray = resultArray.concat(flat(value));
+    }else{
+      resultArray.push(value);
+    }
+  }
+  return resultArray;
+};
+console.log(flat(arr));

@@ -2,7 +2,7 @@
 const readline = require("readline");
 
 const inp = readline.createInterface({
-  input: process.stdin
+  input: process.stdin,
 });
 
 const userInput = [];
@@ -12,17 +12,23 @@ inp.on("line", (data) => {
 });
 
 inp.on("close", () => {
- const month = +userInput[0]
- if(1<=month && month<=12){
-    if (month===2){
-        console.log(28);
-    } else if (month===1 ||month===5 ||month===7 ||month===8 ||month===10 ||month===12){
-        console.log(31);
-    } else{
-        console.log(30);
+  const month = +userInput[0];
+  if (1 <= month && month <= 12) {
+    if (month === 2) {
+      console.log(28);
+    } else if (
+      month === 1 ||
+      month === 5 ||
+      month === 7 ||
+      month === 8 ||
+      month === 10 ||
+      month === 12
+    ) {
+      console.log(31);
+    } else {
+      console.log(30);
     }
- } else {
-     console.log("Error");
- }
-
+  } else {
+    console.log("Error");
+  }
 });

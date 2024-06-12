@@ -13,7 +13,6 @@ var area=1/4*(3**(1/2)*sideLength**2);
 return area.toFixed(2);
 }
 var sideLength= +userInput[0];
-var area= calculateEquilateralTriangleArea(sideLength);
+var area = calculateEquilateralTriangleArea(sideLength);
 console.log(area)
-
 });
