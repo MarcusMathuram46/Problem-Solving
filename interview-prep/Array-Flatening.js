@@ -14,8 +14,9 @@ const flat = (arr) => {
   let resultArr = [];
   for (let val of arr) {
     if (Array.isArray(val)) {
-        let x=flat(val);
-      resultArr = [...resultArr, ...x];
+      // let x = flat(val);
+      resultArr = [...resultArr, ...flat(val)];
+      // resultArray = resultArray.concat(flat(value));
     } else {
       resultArr.push(val);
     }
@@ -23,5 +24,3 @@ const flat = (arr) => {
   return resultArr;
 };
 console.log(flat(arr));
-
-

@@ -13,12 +13,7 @@ inp.on("line", (data) => {
 
 inp.on("close", () => {
   let string=userInput[0];
-
   for(let i=0; i < string.length; i++){
     console.log(string[i]);
   }
- 
-
-
-  //end-here
 });

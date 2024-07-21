@@ -16,9 +16,4 @@ inp.on("close", () => {
   for (let i=0; i< floats.length;i++){
     console.log(floats[i]);
   }
-  
-
- 
-
-  //end-here
 });

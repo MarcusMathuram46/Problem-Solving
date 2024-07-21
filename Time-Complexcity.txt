@@ -1,0 +1,167 @@
+Time complexity is a way to describe the amount of time an algorithm takes to run as a function of the size of its input. It provides a high-level understanding of the algorithm's efficiency and helps in comparing the performance of different algorithms. Time complexity is usually expressed using Big O notation, which focuses on the asymptotic behavior of the algorithm as the input size grows.
+
+Key Concepts
+Big O Notation (O): Big O notation describes an upper bound on the time complexity, giving the worst-case scenario. It helps in understanding the growth rate of an algorithm's running time with respect to the input size.
+
+Input Size (n): The variable 
+𝑛
+n represents the size of the input. It can be the number of elements in an array, the number of nodes in a graph, or any other measure that reflects the size of the problem.
+
+Growth Rate: The growth rate shows how the running time of an algorithm increases as the input size increases. For example, an algorithm with a time complexity of 
+𝑂
+(
+𝑛
+)
+O(n) grows linearly with the input size, whereas an algorithm with a time complexity of 
+𝑂
+(
+𝑛
+2
+)
+O(n 
+2
+ ) grows quadratically.
+
+Common Time Complexities
+Constant Time – 
+𝑂
+(
+1
+)
+O(1):
+
+The running time does not change with the input size.
+
+Example: Accessing a specific element in an array.
+
+javascript
+Copy code
+function getFirstElement(arr) {
+  return arr[0]; // O(1)
+}
+Linear Time – 
+𝑂
+(
+𝑛
+)
+O(n):
+
+The running time grows linearly with the input size.
+
+Example: Finding the maximum element in an array.
+
+javascript
+Copy code
+function findMax(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max; // O(n)
+}
+Logarithmic Time – 
+𝑂
+(
+log
+⁡
+𝑛
+)
+O(logn):
+
+The running time grows logarithmically with the input size.
+
+Example: Binary search in a sorted array.
+
+javascript
+Copy code
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) {
+      return mid; // O(log n)
+    } else if (arr[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1; // Target not found
+}
+Quadratic Time – 
+𝑂
+(
+𝑛
+2
+)
+O(n 
+2
+ ):
+
+The running time grows quadratically with the input size.
+
+Example: Bubble sort.
+
+javascript
+Copy code
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr; // O(n^2)
+}
+Exponential Time – 
+𝑂
+(
+2
+𝑛
+)
+O(2 
+n
+ ):
+
+The running time grows exponentially with the input size.
+
+Example: Solving the Traveling Salesman Problem using brute force.
+
+javascript
+Copy code
+function travelingSalesmanBruteForce(graph, start) {
+  const vertices = graph.length;
+  const visited = new Array(vertices).fill(false);
+  visited[start] = true;
+  return tsp(graph, start, visited, vertices, 1, 0, Number.MAX_VALUE);
+}
+
+function tsp(graph, currPos, visited, vertices, count, cost, answer) {
+  if (count === vertices && graph[currPos][0]) {
+    return Math.min(answer, cost + graph[currPos][0]);
+  }
+
+  for (let i = 0; i < vertices; i++) {
+    if (!visited[i] && graph[currPos][i]) {
+      visited[i] = true;
+      answer = tsp(graph, i, visited, vertices, count + 1, cost + graph[currPos][i], answer);
+      visited[i] = false;
+    }
+  }
+  return answer; // O(2^n)
+}
+Why Time Complexity Matters
+Efficiency: Understanding time complexity helps in choosing the most efficient algorithm for a given problem, especially for large inputs.
+Scalability: Algorithms with lower time complexity scale better with increasing input sizes.
+Performance Comparison: Time complexity allows for a fair comparison of different algorithms regardless of hardware or implementation specifics.
+By analyzing and comparing the time complexity of algorithms, developers can make informed decisions to ensure optimal performance for their applications.
+
+
+
+
+
+
